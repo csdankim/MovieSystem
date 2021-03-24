@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MovieSystem.Data.Repository;
 using MovieSystem.Data.Models;
+using MovieSystem.Data.Services;
 
 namespace MovieSystem
 {
     class ManageMovie
     {
-        private readonly MovieRepository movieRepository;
+        private readonly MovieService movieService;
         public ManageMovie()
         {
-            movieRepository = new MovieRepository();
+            movieService = new MovieService();
         }
         void AddMovie()
         {
@@ -67,7 +67,7 @@ namespace MovieSystem
             Console.Write("Enter Movie Created By = ");
             m.CreatedBy = Console.ReadLine();
 
-            if (movieRepository.Insert(m) > 0)
+            if (movieService.AddMovie(m) > 0)
             {
                 Console.WriteLine("Movie added successfully");
             }
@@ -134,7 +134,7 @@ namespace MovieSystem
             Console.Write("Enter Movie Created By = ");
             m.CreatedBy = Console.ReadLine();
 
-            if (movieRepository.Update(m) > 0)
+            if (movieService.UpdateMovie(m) > 0)
             {
                 Console.WriteLine("Movie added successfully");
             }
@@ -147,9 +147,9 @@ namespace MovieSystem
         {
             Console.Write("Enter Movie Id = ");
             int id = Convert.ToInt32(Console.ReadLine());
-            Movie m = movieRepository.GetById(id);
+            Movie m = movieService.GetById(id);
 
-            if (movieRepository.Delete(id) > 0)
+            if (movieService.DeleteMovie(id) > 0)
             {
                 Console.WriteLine($"Movie Id: {id} Title: {m.Title} deleted");
             }
@@ -160,7 +160,7 @@ namespace MovieSystem
         }
         void PrintAll()
         {
-            IEnumerable<Movie> movieCollection = movieRepository.GetAll();
+            IEnumerable<Movie> movieCollection = movieService.GetAll();
             foreach (var item in movieCollection)
             {
                 Console.WriteLine(item.Id + "\t" + item.Title + "\t" + item.Overview + "\t" + item.ReleaseDate + "\t" + item.ImdbUrl + "\t" + item.PosterUrl + "\t" + item.Revenue);
@@ -170,7 +170,7 @@ namespace MovieSystem
         {
             Console.Write("Enter Movie Id = ");
             int id = Convert.ToInt32(Console.ReadLine());
-            Movie m = movieRepository.GetById(id);
+            Movie m = movieService.GetById(id);
 
             if (m != null)
             {
