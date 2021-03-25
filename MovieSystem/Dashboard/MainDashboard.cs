@@ -12,10 +12,11 @@ namespace MovieSystem.Dashboard
         {
             int choice = 0;
             IDashboard dashboard;
+            MainMenu m = new MainMenu();
 
             do
             {
-                MainMenu m = new MainMenu();
+                //MainMenu m = new MainMenu();
                 choice = m.PrintMenu();
                 switch (choice)
                 {
@@ -54,9 +55,12 @@ namespace MovieSystem.Dashboard
                         Console.WriteLine("Invalid Option");
                         break;
                 }
-                Console.WriteLine("Press Enter to continue......");
-                Console.ReadLine();
-                Console.Clear();
+                if (choice != (int)MainMenuOption.Exit)
+                {
+                    Console.WriteLine("Press Enter to continue......");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
             } while (choice != (int)MainMenuOption.Exit);
         }
     }

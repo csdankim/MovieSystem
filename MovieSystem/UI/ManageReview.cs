@@ -138,9 +138,12 @@ namespace MovieSystem.UI
                         Console.WriteLine("Invalid Option");
                         break;
                 }
-                Console.WriteLine("Press Enter to continue......");
-                Console.ReadLine();
-                Console.Clear();
+                if (choice != (int)ReviewOption.Exit)
+                {
+                    Console.WriteLine("Press Enter to continue......");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
             } while (choice != (int)ReviewOption.Exit);
         }
         #endregion
@@ -266,9 +269,12 @@ namespace MovieSystem.UI
                         Console.WriteLine("Invalid Option");
                         break;
                 }
-                Console.WriteLine("Press Enter to continue......");
-                Console.ReadLine();
-                Console.Clear();
+                if (choice != (int)ReviewOption.Exit)
+                {
+                    Console.WriteLine("Press Enter to continue......");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
             } while (choice != (int)ReviewOption.Exit);
         }
         #endregion

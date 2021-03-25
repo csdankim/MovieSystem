@@ -126,9 +126,12 @@ namespace MovieSystem.UI
                         Console.WriteLine("Invalid Option");
                         break;
                 }
-                Console.WriteLine("Press Enter to continue......");
-                Console.ReadLine();
-                Console.Clear();
+                if (choice != (int)MovieGenreOption.Exit)
+                {
+                    Console.WriteLine("Press Enter to continue......");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
             } while (choice != (int)MovieGenreOption.Exit);
         }
         #endregion
@@ -242,9 +245,12 @@ namespace MovieSystem.UI
                         Console.WriteLine("Invalid Option");
                         break;
                 }
-                Console.WriteLine("Press Enter to continue......");
-                Console.ReadLine();
-                Console.Clear();
+                if (choice != (int)MovieGenreOption.Exit)
+                {
+                    Console.WriteLine("Press Enter to continue......");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
             } while (choice != (int)MovieGenreOption.Exit);
         }
 
