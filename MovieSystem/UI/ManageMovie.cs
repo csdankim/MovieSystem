@@ -190,9 +190,10 @@ namespace MovieSystem.UI
         public void Run()
         {
             int choice = 0;
+            MovieMenu m = new MovieMenu();
+
             do
             {
-                MovieMenu m = new MovieMenu();
                 choice = m.PrintMenu();
 
                 switch (choice)
@@ -404,9 +405,9 @@ namespace MovieSystem.UI
         public void RunAsync()
         {
             int choice = 0;
+            MovieMenu m = new MovieMenu();
             do
             {
-                MovieMenu m = new MovieMenu();
                 choice = m.PrintMenu();
 
                 switch (choice)
