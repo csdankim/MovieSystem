@@ -1,4 +1,7 @@
 ﻿using System;
+using MovieSystem.UI;
+using MovieSystem.Dashboard;
+
 
 namespace MovieSystem
 {
@@ -6,8 +9,10 @@ namespace MovieSystem
     {
         static void Main(string[] args)
         {
-            ManageMovie manageMovie = new ManageMovie();
-            manageMovie.Run();
+            IDashboard dashboard = new MainDashboard();
+            dashboard.ShowDashboard();
+
+            Console.Read();
         }
     }
 }

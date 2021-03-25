@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using MovieSystem.Data.Models;
 using MovieSystem.Data.Repository;
+using System.Threading.Tasks;
 
 namespace MovieSystem.Data.Services
 {
@@ -37,6 +38,32 @@ namespace MovieSystem.Data.Services
         public Movie GetById(int id)
         {
             return movieRepository.GetById(id);
+        }
+
+        //async
+        public Task<int> AddMovieAsync(Movie item)
+        {
+            return movieRepository.InsertAsync(item);
+        }
+
+        public Task<int> UpdateMovieAsync(Movie item)
+        {
+            return movieRepository.UpdateAsync(item);
+        }
+
+        public Task<int> DeleteMovieAsync(int id)
+        {
+            return movieRepository.DeleteAsync(id);
+        }
+
+        public Task<IEnumerable<Movie>> GetAllAsync()
+        {
+            return movieRepository.GetAllAsync();
+        }
+
+        public Task<Movie> GetByIdAsync(int id)
+        {
+            return movieRepository.GetByIdAsync(id);
         }
     }
 }
